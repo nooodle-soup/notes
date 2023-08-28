@@ -1,6 +1,4 @@
-# Notes On Python
-
-## Types
+# Types
 
 You can use python types to ensure the type of data you are passing
  around in your program.
