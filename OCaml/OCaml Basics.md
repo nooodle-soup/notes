@@ -72,11 +72,68 @@ Variable names (identifiers) can only start with a lowercase letter or an
  Print Loop). Assume I have used utop unless I state otherwise.
 
 ```ocaml
-# let x7 = 10-3;;
-val x7 : int = 7 
-
-# let x_plus_3 = x + 3;;
-val x : int = 10
+# | let x7 = 10-3;;
+  | val x7 : int = 7 
+  |
+# | let x_plus_3 = x + 3;;
+  | val x : int = 10
 ```
 
+These are the valid ways in which one can define identifiers for variables. Let
+ us look at some invalid examples.
 
+ ```ocaml
+# | let X = 10;;
+  | Error: Unbound constructor X
+  |
+# | let 7x = 7;;
+  | Error: Unknown modifier 'x' for literal 7x
+```
+
+We can see that the capital letters at the start of a variable cause an error.
+ This is because they are reserved for something that is called a constructor.
+ Constructors will be talked about in more detail when we come to user defined
+ types.
+
+One thing to note is that every statement in OCaml is an expression.
+ In ```let x7 = 10 - 3;;```, ```10 = 3``` is an expression that evaluates to
+ ```7```, which is a value of type ```int```. This allows the type of ```x7```
+ to be inferred to ```int```. The OCaml interpreter is simple and smart and
+ uses the expressions in a statement to infer the type of the indentifiers.
+
+A value can be of the following types:
+1. Base Values
+    1. Integer numbers
+    2. Floating-point numbers
+    3. Characters
+    4. Character Strings
+2. Tuples
+3. Records
+4. Arrays
+5. Variant values
+6. Polymorphic variants
+7. Functions
+8. Objects
+
+Keep in mind that all values are expressions but not all expressions are 
+ values. An expression can fail to evaluate to a value in the following cases:
+1. Evaluating the expression raises an error.
+2. The expression can never be evaluated (infinite loops).
+
+Now that we know how to name variables, let's look at functions.
+
+## Functions
+
+Functions in OCaml might seem almost alien if you have never experienced any 
+ other Meta-Language (ML). They are defined using the same keyword used for
+ assigning values to variables. The parameters are not written in parentheses.
+ There is no clear syntactical way to show the start or end of a code block.
+ And there is no return statement. Here's an example.
+
+```ocaml
+# | let add x y = x + y;;
+  | val add : int -> int -> int = <fun>
+```
+
+Once you start writing code in OCaml though, you will wonder why you even used
+ parentheses in the first place and why you needed the return keyword.
