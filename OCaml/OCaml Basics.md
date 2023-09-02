@@ -21,7 +21,7 @@ x = 10
 printx(x)
 ```
 
-## 1. Syntax
+### 1. Syntax
 
 Syntax of a language is the set of rules that define what makes up a program
  in the language. In our code above, syntax refers to what and how we can
@@ -31,7 +31,7 @@ Syntax of a language is the set of rules that define what makes up a program
  of a typical ```{}```), operators (```=```), formatting, etc. all together
  make up the syntax for a language.
 
-## 2. Semantics
+### 2. Semantics
 
 According to Wikipedia, semantics is the rigorous mathematical study of the
  meaning of programming languages. Semantics assigns assigns computational
@@ -43,12 +43,12 @@ In a simpler manner, semantics are the rules which define how a program will
  syntactic checks, and dynamic semantics which define the run time behaviour
  of a program during execution or evaluation.
 
-## 3. Idioms
+### 3. Idioms
 
 Idioms of a programming language are essentially the most common takes to
  expressing computations using the features of the language.
 
-## 4. Libraries
+### 4. Libraries
 
 As a language gets older and programmers write more code with it, slowly
  there is a rise of convenience functions and interfaces pertaining to a
@@ -56,8 +56,27 @@ As a language gets older and programmers write more code with it, slowly
  programming language has them and learning how to use them is an essential
  part of the journey to learn a programming language.
 
-## 5. Tools
+### 5. Tools
 
 Tools are very useful to make a programming language easy to use. Debuggers,
  Integrated Development Environments and even performance analysis tools
  help one master a language and build better programs.
+
+Let's start with understanding the OCaml syntax.
+
+## Naming Variables
+
+Variable names (identifiers) can only start with a lowercase letter or an
+ underscore. Punctuations expept for _ and ' are excluded. The following are
+ some examples I wrote in utop (OCaml's toplevel that is a REPL (Read-Eval-
+ Print Loop). Assume I have used utop unless I state otherwise.
+
+```ocaml
+# let x7 = 10-3;;
+val x7 : int = 7 
+
+# let x_plus_3 = x + 3;;
+val x : int = 10
+```
+
+
