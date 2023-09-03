@@ -82,7 +82,7 @@ Variable names (identifiers) can only start with a lowercase letter or an
 These are the valid ways in which one can define identifiers for variables. Let
  us look at some invalid examples.
 
- ```ocaml
+```ocaml
 # | let X = 10;;
   | Error: Unbound constructor X
   |
@@ -137,3 +137,54 @@ Functions in OCaml might seem almost alien if you have never experienced any
 
 Once you start writing code in OCaml though, you will wonder why you even used
  parentheses in the first place and why you needed the return keyword.
+
+If you observed carefully, you can see that both ```add``` and ```x7``` are
+ treated as ```val```. This is because every function and value is bound to
+ an identifier using the ```let``` keyword. The return type of the function
+ is inferred by the compiler. This makes the programs written in OCaml type-
+ safe. The signature of the function here is ```int -> int -> int = <fun>```.
+ If you think of a function having a single return value and backtrace from
+ there, the remaining types at the start of the signature would have to be the
+ inputs. Think of it as the types of the arguments that the function will
+ accept followed by the type it will return. Our function here takes in two
+ integers and returns one integer.
+
+If you think about it carefully, you will come up with a very interesting
+ question - "How does the compiler know which variable will be of which type?".
+ This is possible because the compiler solves the type inference problem
+ algorithmically. But even in our example above, one cannot say for sure that
+ ```x``` and ```y``` will be integers. Or can they?
+
+## Operators
+
+In the world of OCaml, one of the most strikingly different and beautiful
+ concept is that of operators. In OCaml, a ```+``` is not just an addition
+ operator. It is in fact an Integer addition operator, which means that a
+ ```+``` will only add integers. How to add Floating-point values you ask?
+ Use the operators created specifically for floating-point aritmetic. They
+ are not that different from a regular operator. ```+.``` is the floaing-point
+ addition operator. The same is true for all the other three operators.
+
+ |  Operator    | Integer | Floating-point |
+ |:------------:|:-------:|:--------------:|
+ |Addition      |    +    |       +.       |
+ |Subtraction   |    -    |       -.       |
+ |Multiplication|    *    |       *.       |
+ |Division      |    /    |       /.       |
+ -------------------------------------------
+
+The compiler uses these constraints to it's advantage for inferring the types
+ of the parameters of a function. Let us try to infer the type of our function
+ ```add```.
+
+There is only one hint to infer types from and that is the ```+``` integer
+ addition operator. We now know that it will only add integers, and thus if
+ it is being used in the expression ```x + y```, the type of both ```x``` and
+ ```y``` has to be ```int```. That expression is also the return statement for
+ the function, and thus the return type of the function is also an ```int```.
+ The separation of these operators makes is clear about the type of value
+ being used and this peculiarity among others helps in making the types
+ inference easier.
+
+You can have a look at the built-in operators
+ [here](https://v2.ocaml.org/api/Ocaml_operators.html).
