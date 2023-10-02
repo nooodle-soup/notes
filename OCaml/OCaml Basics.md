@@ -143,10 +143,10 @@ If you observed carefully, you can see that both ```add``` and ```x7``` are
  an identifier using the ```let``` keyword. The return type of the function
  is inferred by the compiler. This makes the programs written in OCaml type-
  safe. The signature of the function here is ```int -> int -> int = <fun>```.
- If you think of a function having a single return value and backtrace from
+ If you think of a function having a single return value and backtrack from
  there, the remaining types at the start of the signature would have to be the
- inputs. Think of it as the types of the arguments that the function will
- accept followed by the type it will return. Our function here takes in two
+ inputs. For now, think of it as the types of the arguments that the function 
+ will accept followed by the type it will return. Our function here takes in two
  integers and returns one integer.
 
 If you think about it carefully, you will come up with a very interesting
