@@ -36,67 +36,71 @@ grep -n "pattern" filename
 grep -v "pattern" filename
 ```
 
-### 6. 
+### 6. Recursive Search in Subdirectories:
 ```bash
+grep -r "pattern" /path/to/directory
 ```
 
-### 7.
+### 7. Basic Regex:
 ```bash
+grep "^pattern" filename
 ```
 
-### 8.
+### 8. Display N Lines Before and After:
 ```bash
+grep -C 2 "pattern" filename
 ```
 
-### 9.
+### 9. Count the Number of Lines Matching a Pattern:
 ```bash
+grep -c "pattern" filename
 ```
 
-### 10.
+### 10. Search for Multiple Patterns Using OR:
 ```bash
+grep "pattern1\|pattern2" filename
 ```
 
-### 11.
+### 11. Display Line Numbers Alongside Matching Lines:
 ```bash
+grep -n "pattern" filename
 ```
 
-### 12.
+### 12. Search for Whole Words Only:
 ```bash
-```
-
-### 13.
-```bash
-```
-
-### 14.
-```bash
-```
-
-### 15.
-```bash
-```
-
-### 16.
-```bash
-```
-
-### 17.
-```bash
-```
-
-### 18.
-```bash
-```
-
-### 19.
-```bash
-```
-
-### 20. Colorize Output:
-```bash
-grep --color=auto "pattern" filename
+grep -w "word" filename
 ```
 
 ## Advanced Usage
 
+### 13. Files Containing a Specific Pattern:
+```bash
+find /path/to/search -type f -exec grep -l "pattern" {} +
+```
+
+### 14. Find and Replace Text in Files:
+```bash
+grep -rl "old_pattern" /path/to/search | xargs sed -i 's/old_pattern/new_pattern/g'
+```
+
+### 15. Search for a Pattern in Compressed Files:
+```bash
+zgrep "pattern" filename.gz
+```
+
+### 16. Recursive Search in Directories with Exclusions:
+```bash
+grep -r "pattern" --exclude=*.log --exclude-dir=exclude_folder /path/to/directory
+```
+
+### 17. Piping Output to Another Command
+```bash
+grep "404" access.log | awk '{print $7}' | sort | uniq -c | sort -rn
+```
+
 ## Tips and Tricks
+
+### 18. Colorize Output:
+```bash
+grep --color=auto "pattern" filename
+```
